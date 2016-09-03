@@ -1,18 +1,120 @@
-var natural = require('natural');
+/** -------DOMAINS OF ABILITY-------- **/
 
-var classifier = new natural.BayesClassifier();
+// Allow user to login
+var loginDomain = {
+    handle: function(message) {
+        return 'I need proof that you\'re you: ';
+    }
+};
 
-classifier.addDocument('i am long qqqq', 'buy');
-classifier.addDocument("buy the q's", 'buy');
-classifier.addDocument('short gold', 'sell');
-classifier.addDocument('sell gold', 'sell');
+// Provide lolz
+var memesDomain = {
+    handle: function(message) {
+        return 'Lolz galore: ';
+    }
+};
 
-classifier.train();
-console.log(classifier.classify('i am short silver'))
+// Provide the latest trending topics across platforms
+var newsDomain = {
+    handle: function(message) {
+        return 'What\'s new: ';
+    }
+};
+
+// Provide the latest trending tweets
+var twitterDomain = {
+    handle: function(message) {
+        return 'Twitter\'s saying a lot: ';
+    }
+};
+
+// Provide a feed of trending videos
+var videosDomain = {
+    handle: function(message) {
+        return 'Watch this: ';
+    }
+};
+
+// Provide food recomendations
+var foodDomain = {
+    handle: function(message) {
+        return 'Some meals you might like: ';
+    }
+};
+
+// Make film recomendations
+var movieDomain = {
+    handle: function(message) {
+        return 'Some films you might like: ';
+    }
+};
+
+// Make song recomendations
+var songDomain = {
+    handle: function(message) {
+        return 'Some songs you might like: ';
+    }
+};
+
+// Provide a feed of trending insta posts
+var instaDomain = {
+    handle: function(message) {
+        return 'Here\s what\s new on the gram: ';
+    }
+};
+
+// Provide a feed of random media
+var instaDomain = {
+    handle: function(message) {
+        return 'Random: ';
+    }
+};
+
+// Make small talk
+var smallTalkDomain = {
+    handle: function(message) {
+        return 'Chit chat ';
+    }
+};
+
+/** -------UTILITIES-------- **/
 
 module.exports = {
     respondTo: function(message) {
-        console.log(message)
-        return 'Hey hey'
+
+        switch (message) {
+            case 'login plz':
+                return loginDomain.handle(message);
+                break
+            case 'memes plz' || 'lolz plz':
+                return memesDomain.handle(message);
+                break
+            case 'news plz':
+                return newsDomain.handle(message);
+                break
+            case 'tweets plz':
+                return twitterDomain.handle(message);
+                break
+            case 'food plz':
+                return foodDomain.handle(message);
+                break
+            case 'vids plz':
+                return videoDomain.handle(message);
+                break
+            case 'movie plz':
+                return movieDomain.handle(message);
+                break
+            case 'song plz':
+                return songDomain.handle(message);
+                break
+            case 'insta plz':
+                return instaDomain.handle(message);
+                break
+            case 'randoms plz':
+                return randomDomain.handle(message);
+                break
+            default:
+                return smallTalkDomain.handle(message);
+        };
     }
-}
+};
