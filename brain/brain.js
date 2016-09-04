@@ -10,7 +10,7 @@ var loginDomain = {
 // Provide lolz
 var memesDomain = {
     handle: function(message) {
-        return 'Lolz galore: ';
+        return 'lolz galore: ';
     }
 };
 
@@ -73,7 +73,7 @@ var instaDomain = {
 // Make small talk
 var smallTalkDomain = {
     handle: function(message) {
-        return 'Chit chat ';
+        return 'Chit chat';
     }
 };
 
@@ -85,34 +85,24 @@ module.exports = {
         switch (message) {
             case 'login plz':
                 return loginDomain.handle(message);
-                break
-            case 'memes plz' || 'lolz plz':
+            case 'memes plz':
                 return memesDomain.handle(message);
-                break
             case 'news plz':
                 return newsDomain.handle(message);
-                break
             case 'tweets plz':
                 return twitterDomain.handle(message);
-                break
             case 'food plz':
                 return foodDomain.handle(message);
-                break
             case 'vids plz':
                 return videoDomain.handle(message);
-                break
             case 'movie plz':
                 return movieDomain.handle(message);
-                break
             case 'song plz':
                 return songDomain.handle(message);
-                break
             case 'insta plz':
                 return instaDomain.handle(message);
-                break
             case 'randoms plz':
                 return randomDomain.handle(message);
-                break
             default:
                 return smallTalkDomain.handle(message);
         };
